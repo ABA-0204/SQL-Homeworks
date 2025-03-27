@@ -60,3 +60,13 @@ SELECT SUBSTRING(fullname, 1, CHARINDEX(' ', fullname) - 1) AS Firstname,
                  CHARINDEX(' ', fullname) + 1,
                  LEN(fullname) - CHARINDEX(' ', fullname)) AS Lastname
 FROM Customers
+--2️⃣6️⃣ **Replace Spaces with Dashes** → Change **'SQL Server is great'** → **'SQL-Server-is-great'**.  
+SELECT REPLACE('SQL Server is great', ' ', '-')
+--2️⃣7️⃣ **Pad with Zeros** → Convert **42** to **'00042'** (5-digit).  
+SELECT CONCAT('000','42')
+--2️⃣8️⃣ **Find Longest Word Length** → Longest word in **'SQL is fast and efficient'**.  
+SELECT value,  len(value) FROM STRING_SPLIT('SQL is fast and efficient', ' ') order  by len(value) desc
+--2️⃣9️⃣ **Remove First Word** → Remove first word from **'Error: Connection failed'**. Output: **: Connection failed'** 
+SELECT RIGHT('Error: Connection failed', LEN('Error: Connection failed')-LEN('Error')-1)
+--3️⃣0️⃣ **Find Time Difference** → Minutes between **'08:15:00'** & **'09:45:00'**.  
+SELECT DATEDIFF(MINUTE,'08:15:00','09:45:00')
